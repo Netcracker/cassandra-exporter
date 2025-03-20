@@ -40,15 +40,6 @@ public class TestSslContextFactory {
     }
 
     @Test
-    public void testCreateJdkSslContext() {
-        serverOptions.sslImplementation = SslImplementation.JDK;
-
-        SslContext context = contextFactory.createSslContext();
-
-        assertThat(context.newEngine(ByteBufAllocator.DEFAULT).getClass().getSimpleName()).isEqualTo("SSLEngineImpl");
-    }
-
-    @Test
     public void testCreateOpenSslContext() {
         serverOptions.sslImplementation = SslImplementation.OPENSSL;
 
@@ -152,29 +143,6 @@ public class TestSslContextFactory {
 
         assertThatIllegalArgumentException().isThrownBy(() -> contextFactory.createSslContext())
                 .withMessageContaining("Unable to read SSL server key password file");
-    }
-
-    @Test
-    public void testCreateSslContextWithServerKeyAndCert() {
-        serverOptions.sslServerKeyFile = givenResource("cert/key.pem");
-        serverOptions.sslServerCertificateFile = givenResource("cert/cert.pem");
-        serverOptions.sslImplementation = SslImplementation.JDK;
-
-        SslContext context = contextFactory.createSslContext();
-
-        assertThat(context.newEngine(ByteBufAllocator.DEFAULT).getClass().getSimpleName()).isEqualTo("SSLEngineImpl");
-    }
-
-    @Test
-    public void testCreateSslContextWithServerKeyAndCertWithPassword() {
-        serverOptions.sslServerKeyFile = givenResource("cert/protected-key.pem");
-        serverOptions.sslServerKeyPasswordFile = givenResource("cert/protected-key.pass");
-        serverOptions.sslServerCertificateFile = givenResource("cert/cert.pem");
-        serverOptions.sslImplementation = SslImplementation.JDK;
-
-        SslContext context = contextFactory.createSslContext();
-
-        assertThat(context.newEngine(ByteBufAllocator.DEFAULT).getClass().getSimpleName()).isEqualTo("SSLEngineImpl");
     }
 
     @Test

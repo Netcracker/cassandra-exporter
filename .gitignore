@@ -14,7 +14,3 @@ release.properties
 test/build
 *.egg-info
 __pycache__
-
-bin/
-lib/
-pyvenv.cfg
