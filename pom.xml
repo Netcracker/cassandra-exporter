@@ -95,10 +95,7 @@
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
-        </plugins>
-
-        <plugins>
-      <plugin>
+            <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
         <version>1.7</version>
@@ -135,7 +132,8 @@
           </execution>
         </executions>
       </plugin>
-    </plugins>
+        </plugins>
+      
     </build>
 
     <repositories>
