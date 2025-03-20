@@ -1,15 +1,10 @@
-name: Build and Publish Cassandra Exporter
+name: Maven Build
 
 on:
-  release:
-    types: [created]
   push:
     branches:
       - '**'
-
-env:
-  TAG_NAME: ${{ github.event.release.tag_name || github.ref }}
-  PUSH: ${{ (github.event_name != 'workflow_dispatch' || inputs.publish_docker) && github.actor != 'dependabot[bot]' }}
+  pull_request:
 
 jobs:
   build:
@@ -24,10 +19,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '11'
-
-      - name: Set Up Maven
-        run: |
-          echo "MAVEN_OPTS='-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true'" >> $GITHUB_ENV
+          cache: maven  # Speeds up builds by caching dependencies
 
       - name: Build with Maven
         run: mvn clean package
