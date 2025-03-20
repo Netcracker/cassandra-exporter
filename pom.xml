@@ -107,12 +107,10 @@
               <goal>attach-artifact</goal>
             </goals>
             <configuration>
-              <artifacts>
                 <artifact>
                   <file><file>${project.build.directory}/${project.build.finalName}.jar</file></file>
                   <type>jar</type>
                 </artifact>
-              </artifacts>
             </configuration>
           </execution>
         </executions>
