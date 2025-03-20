@@ -3,7 +3,7 @@
 
     <groupId>org.qubership.com</groupId>
     <artifactId>exporter-parent</artifactId>
-    <version>0.9.12-SNAPSHOT</version>
+    <version>0.9.12</version>
     <packaging>pom</packaging>
 
     <name>Cassandra Exporter Parent</name>
@@ -95,7 +95,7 @@
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
-            <plugin>
+        <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
         <version>1.7</version>
@@ -131,8 +131,8 @@
             <phase>package</phase>
           </execution>
         </executions>
-      </plugin>
-        </plugins>
+       </plugin>
+    </plugins>
       
     </build>
 
