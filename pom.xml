@@ -3,7 +3,7 @@
 
     <groupId>org.qubership.com</groupId>
     <artifactId>exporter-parent</artifactId>
-    <version>0.9.12</version>
+    <version>0.9.12-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Cassandra Exporter Parent</name>
@@ -109,7 +109,7 @@
             <configuration>
               <artifacts>
                 <artifact>
-                  <file>cassandra-exporter-${project.version}</file>
+                  <file><file>${project.build.directory}/${project.build.finalName}.jar</file></file>
                   <type>jar</type>
                 </artifact>
               </artifacts>
