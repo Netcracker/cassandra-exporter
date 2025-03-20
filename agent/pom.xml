@@ -10,6 +10,7 @@
 
     <artifactId>agent</artifactId>
     <version>0.9.12-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <name>Cassandra Exporter Agent</name>
 
