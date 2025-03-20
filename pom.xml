@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.qubership.com</groupId>
+    <groupId>com.zegelin.cassandra-exporter</groupId>
     <artifactId>exporter-parent</artifactId>
-    <version>0.9.12-SNAPSHOT</version>
+    <version>0.9.15-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Cassandra Exporter Parent</name>
@@ -39,9 +39,9 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.qubership.com</groupId>
+                <groupId>com.zegelin.cassandra-exporter</groupId>
                 <artifactId>common</artifactId>
-                <version>0.9.12-SNAPSHOT</version>
+                <version>0.9.15-SNAPSHOT</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.glassfish.hk2.external</groupId>
@@ -95,60 +95,6 @@
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
-        <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.7</version>
-        <executions>
-          <execution>
-            <id>attach-artifacts</id>
-            <phase>package</phase>
-            <goals>
-              <goal>attach-artifact</goal>
-            </goals>
-            <configuration>
-              <artifacts>
-                <artifact>
-                  <file>${project.build.directory}/${project.build.finalName}.jar</file>
-                  <type>jar</type>
-                </artifact>
-              </artifacts>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.4</version>
-        <executions>
-          <execution>
-            <id>default</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-            <phase>package</phase>
-          </execution>
-        </executions>
-       </plugin>
-    </plugins>
-      
+        </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/netcracker/*</url>
-            <snapshots/>
-        </repository>
-    </repositories>
-
-    <distributionManagement>
-    <repository>
-        <id>github</id>
-        <url>https://maven.pkg.github.com/netcracker/cassandra-exporter</url>
-    </repository>
-    </distributionManagement>
-    
 </project>
